@@ -9,7 +9,7 @@ export default function New({history}){
     const [company, setCompany] = useState('');
     const [techs, setTechs] = useState('');
     const [price, setPrice] = useState('');
-    const [valorNormal, setValorNormal] = useState('');
+    const [valor, setValor] = useState('');
     const [thumbnail, setThumbnail] = useState(null);
 
     const preview = useMemo(() => {
@@ -27,7 +27,10 @@ export default function New({history}){
         data.append('company', company);
         data.append('techs', techs);
         data.append('price', price);
-        data.append('valorNormal', price);
+        data.append('valor', valor);
+
+
+        
 
 
         await api.post('/spots', data, {
@@ -67,8 +70,8 @@ export default function New({history}){
             <input 
                 id="valorNormal"
                 placeholder="Valor antigo"
-                value= {valorNormal}
-                onChange={event => setValorNormal(event.target.value)}
+                value= {valor}
+                onChange={event => setValor(event.target.value)}
             />
             
             <label htmlFor="techs">VALOR PROMOCIONAL * <span>(Em branco para GRATUITO)</span> </label>
